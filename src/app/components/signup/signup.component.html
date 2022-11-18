@@ -1,0 +1,73 @@
+<div class="bg">
+    <div class="card">
+        <div class="text-center">
+            <h1>Signup</h1>
+        </div>
+        <form [formGroup]="signupForm">
+            <div class="mb-3">
+                <label for="username">Username</label>
+                <input formControlName="username" type="text" class="form-control" id="username" placeholder="Username"
+                    [(ngModel)]="username">
+                <div *ngIf="(f.username.dirty || f.username.touched) && f.username.invalid" class="formError">
+                    <div *ngIf="f.username.errors?.required">Name is required.</div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="email">Email</label>
+                <input formControlName="email" type="email" class="form-control" id="email" placeholder="Email"
+                    [(ngModel)]="email">
+                <div *ngIf="(f.email.dirty || f.email.touched) && f.email.invalid" class="formError">
+                    <div *ngIf="f.email.errors?.required">Email is required.</div>
+                </div>
+                <div *ngIf="f.email.dirty && f.email.invalid" class="formError">
+                    <div *ngIf="f.email.errors">Email must be a valid email address</div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="password">Password</label>
+                <input formControlName="password" type="password" class="form-control" id="password"
+                    placeholder="Password" [(ngModel)]="password">
+                <div *ngIf="(f.password.dirty || f.password.touched) && f.password.invalid" class="formError">
+                    <div *ngIf="f.password.errors?.required">Password is required.</div>
+                </div>
+                <div *ngIf="f.password.dirty && f.password.invalid" class="formError">
+                    <div *ngIf="f.password.errors?.minlength">Password must be at least 6 characters</div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="contactNumber">Contact Number</label>
+                <input formControlName="contactNumber" type="text" class="form-control" id="contactNumber" placeholder="Contact Number"
+                    [(ngModel)]="contactNumber">
+                <div *ngIf="(f.contactNumber.dirty || f.contactNumber.touched) && f.contactNumber.invalid" class="formError">
+                    <div *ngIf="f.contactNumber.errors?.required">Contact Number is required.</div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="address">Address</label>
+                <input formControlName="address" type="text" class="form-control" id="address" placeholder="Address"
+                    [(ngModel)]="address">
+                <div *ngIf="(f.address.dirty || f.address.touched) && f.address.invalid" class="formError">
+                    <div *ngIf="f.address.errors?.required">Address is required.</div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="dob">Date of Birth</label>
+                <input formControlName="dob" type="date" class="form-control" id="dob" placeholder="DOB"
+                    [(ngModel)]="dob">
+                <div *ngIf="(f.dob.dirty || f.dob.touched) && f.dob.invalid" class="formError">
+                    <div *ngIf="f.dob.errors?.required">Date of Birth is required.</div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <button class='btn btn-primary' [disabled]="signupForm.invalid" (click)="signup()">Sign Up</button>
+            </div>
+        </form>
+
+        <div *ngIf="ispopup" class="alert alert-danger alert-dismissible fade show">
+            <strong> {{errorMsg}}</strong>
+            <button (click)="closePopup()" type="button" class="btn-close" data-bs-dismiss="alert"
+                aria-label="Close"></button>
+        </div>
+    </div>
+</div>

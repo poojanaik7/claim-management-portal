@@ -1,0 +1,24 @@
+Network Hospitals
+<div class="content">
+    <div fxLayout="row wrap" fxLayoutGap="16px grid">
+        <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let provider of providerDetails">
+            <mat-card class="mat-elevation-z4">
+                <mat-card-header>
+                    <mat-card-title><b>{{provider.providerName}}</b></mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <p>{{provider.providerName}}</p>
+                    <p>{{provider.providerLocation}}</p>
+                    <p>{{provider.providerData}}</p>
+                    <div  *ngFor="let benefit of provider.benefits">
+                        <p>{{benefit.speciality}}</p>
+                        <p>{{benefit.facility}}</p>
+                
+                    </div>
+                </mat-card-content>
+                <mat-card-actions>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</div>

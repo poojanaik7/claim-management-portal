@@ -1,0 +1,34 @@
+<div class="content">
+  <div fxLayout="row wrap" fxLayoutGap="16px grid">
+    <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%">
+      <mat-card class="mat-elevation-z4">
+
+        <mat-card-content>Policy Services</mat-card-content>
+        <a href="/member" class="btn stretched-link"></a>
+      </mat-card>
+    </div>
+  </div>
+</div>
+<div>
+  Claim Services
+</div>
+<div class="content">
+  <div fxLayout="row wrap" fxLayoutGap="16px grid">
+    <div fxFlex="25%" fxFlex.xs="50%" fxFlex.sm="33%" style="width: 18rem;">
+      <mat-card class="mat-elevation-z4">
+
+        <mat-card-content>View Bills</mat-card-content>
+       <button class="btn stretched-link" (click)="viewBills()"></button>
+        <!-- <a style="margin:5px;" class="btn btn-secondary" routerLink="signup">Signup</a>  -->
+        <!-- <a (click)="viewBills()" class="btn stretched-link"></a> -->
+      </mat-card>
+    </div>
+    <div fxFlex="25%" fxFlex.xs="50%" fxFlex.sm="33%" style="width: 18rem;">
+      <mat-card class="mat-elevation-z4">
+
+        <mat-card-content>Submit Claim</mat-card-content>
+        <a routerLink="claim" class="btn stretched-link"></a>
+      </mat-card>
+    </div>
+  </div>
+</div>

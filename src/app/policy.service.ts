@@ -1,0 +1,47 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class PolicyService {
+
+  constructor(private http: HttpClient) { }
+
+  getAllPolicies(){
+    const currentUser = sessionStorage.getItem('currentUser');
+    const token: any = JSON.parse(currentUser || '{}')['token']
+    return this.http.get("http://localhost:8003/policy/preview/policies", {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    })
+  }
+
+  getAllProviders(){
+    const currentUser = sessionStorage.getItem('currentUser');
+    const token: any = JSON.parse(currentUser || '{}')['token']
+    return this.http.get("http://localhost:8003/policy/viewChainOfProvider", {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    })
+  }
+  
+  coverage: Number;
+  premiumAmount: Number;
+  premiumPaymentFrequency: Number;
+  subscriptionDate: Date = new Date();
+  enrollPolicy(policyNumber: Number , policyName: string, coverage: any,premiumAmount: Number,
+    premiumPaymentFrequency: Number,subscriptionDate: Date = new Date()) {
+    const currentUser = sessionStorage.getItem('currentUser');
+    const token: any = JSON.parse(currentUser || '{}')['accessToken'];
+    const memberId: any = JSON.parse(currentUser || '{}')['id'];
+    
+    return this.http.post( "http://localhost:8003/policy/enrolPolicy", {policyNumber, policyName,memberId,coverage,premiumAmount,premiumPaymentFrequency,subscriptionDate}, {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    })
+  }
+}

@@ -1,0 +1,46 @@
+<div class="bg">
+    <h4>Welcome to Claim Management Portal</h4>
+
+    <div>
+        <!-- <div >
+        <a class="btn btn-primary" routerLink="createBook">Add Book</a>
+        </div> -->
+
+
+        <div class="container" fxLayout="row wrap" fxLayoutGap="16px grid">
+            <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let policy of policyDetails">
+                <div class="item item-1">
+                    <button class="btn-primary" (click)="enrollPolicy(policy)">Enroll</button>
+                    <h4>Policy Name: {{policy.policyName}}</h4>
+                    <h4>Policy Number:{{policy.policyNumber}}</h4>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Coverage</th>
+                                <th scope="col">Premium</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let prm of policy.premium">
+                                <th scope="row">{{ prm.id }}</th>
+                                <td>
+                                    {{ prm.coverage }}
+                                </td>
+                                <td>{{ prm.premiumAmount | number}}</td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                    <b>Benefits</b>
+                    <div *ngFor="let benefits of policy.policyBenefits">
+
+                        <p>{{benefits.benefitName}}:
+                            {{benefits.benefitDescription}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

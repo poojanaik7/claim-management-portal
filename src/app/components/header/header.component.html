@@ -1,17 +1,23 @@
 <nav class="navbar navbar-inverse">
-    <ul >
-        <h2><b>Claim Mamagement System</b></h2>
+    <ul class="nav justify-content-end">
+        <li class="nav-item active">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+        <h1><b>Claim Management</b></h1>
     </ul>
 
     <ul class="nav justify-content-end">
-        
+        <li *ngIf="!isLoggedIn()" ngclass="nav-item">
             <a style="margin:5px;" class="btn btn-secondary" routerLink="signup">Signup</a>
-       
-        
+        </li>
+        <li *ngIf="!isLoggedIn()" class="nav-item">
             <a style="margin:5px;" class="btn btn-secondary" routerLink="signin">Signin</a>
-        
-         <!-- <li *ngIf="isLoggedIn()" class="nav-item">
+        </li>
+        <li *ngIf="isLoggedIn()" class="nav-item">
             <a style="margin:5px;" class="btn btn-secondary" (click)="logout()">Logout</a>
-        </li>  -->
+        </li>
+        <li *ngIf="isLoggedIn()" class="nav-item">
+            <a style="margin:5px;" class="btn btn-primary" (click)="getProviders()">Network Hospitals</a>
+        </li>
     </ul>
 </nav>

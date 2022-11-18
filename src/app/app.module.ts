@@ -4,15 +4,57 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { SigninComponent } from './components/signin/signin.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Route, RouterModule } from '@angular/router';
+import { MemberComponent } from './components/member/member.component';
+import { HttpClientModule } from '@angular/common/http';
+import { PolicyComponent } from './components/policy/policy.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ProviderComponent } from './components/provider/provider.component';
+import { MemberhomeComponent } from './components/memberhome/memberhome.component';
+import { AngularMaterialModule } from './components/angular-material.module';
+import { ClaimComponent } from './components/claim/claim.component';
+import { BillsComponent } from './components/bills/bills.component';
+
+
+
+const routes:Route []= [
+  {path:'member', component:MemberComponent},
+  {path:'signup',component:SignupComponent},
+  {path:'signin',component:SigninComponent},
+  {path:'policy/enrollPolicy',component:PolicyComponent},
+  {path:'provider',component:ProviderComponent},
+  {path:'',component:MemberhomeComponent},
+  {path:'claims',component:ClaimComponent},
+  {path:'claim/bills',component:BillsComponent}
+  
+];
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    SignupComponent,
+    SigninComponent,
+    MemberComponent,
+    PolicyComponent,
+    ProviderComponent,
+    MemberhomeComponent,
+    ClaimComponent,BillsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule, 
+    AppRoutingModule,
+    AngularMaterialModule,
+    RouterModule.forRoot(routes), 
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
