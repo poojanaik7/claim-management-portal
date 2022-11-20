@@ -1,1 +1,76 @@
+<div class="container">
+    <form [formGroup]="claimForm">
+        <div *ngFor="let policy of policies">
+            <div class="mt-3"></div>
+            <div class="mb-3">
+                <label for="providerName">Provider Name</label>
+                <div>
+                    <select id="providerName" formControlName="providerName" class="form-control" [(ngModel)]="providerName">
+                        <option></option>
+                        <option *ngFor="let provider of policy.providers">{{provider.providerName}}</option>
+                    </select>
+                </div>
+                <div *ngIf="(f.providerName.dirty || f.providerName.touched) && f.providerName.invalid" class="alert-feedback">
+                    <span class="formError" *ngIf="f.providerName.errors?.required">Provider Name is required.</span>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label>Benefit Availed</label>
+                <div>
+                    <select id="benefitsAvailed" formControlName="benefitsAvailed" class="form-control"
+                        [(ngModel)]="benefitsAvailed">
+                        <option></option>
+                        <option *ngFor="let benefit of policy.policyBenefits">{{benefit.benefitName}}</option>
+                    </select>
+                </div>
+                <div *ngIf="(f.benefitsAvailed.dirty || f.benefitsAvailed.touched) && f.benefitsAvailed.invalid"
+                    class="alert-feedback">
+                    <span class="formError" *ngIf="f.benefitsAvailed.errors?.required">Benefit Availed is
+                        required.</span>
+                </div>
 
+            </div>
+            <div class="mb-3">
+                <label>Claim Date</label>
+
+                <input type="date" formControlName="claimDate" class="form-control" [(ngModel)]="claimDate"
+                    value="claimDate" id="claimDate" placeholder="Enter Claim Date">
+                <div *ngIf="(f.claimDate.dirty || f.claimDate.touched) && f.claimDate.invalid" class="alert-feedback">
+                    <span class="formError" *ngIf="f.claimDate.errors?.required">Claim Date is required.</span>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label>Bill Amount</label>
+
+                <input type="text" formControlName="billAmount" class="form-control" [(ngModel)]="billAmount"
+                    id="billAmount" placeholder="Enter Bill Amount">
+                <div *ngIf="(f.billAmount.dirty || f.billAmount.touched) && f.billAmount.invalid"
+                    class="alert-feedback">
+                    <span class="formError" *ngIf="f.billAmount.errors?.required">Bill Amount is required.</span>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label>Claim Amount</label>
+
+                <input type="text" formControlName="claimAmount" class="form-control" [(ngModel)]="claimAmount"
+                    id="claimAmount" placeholder="Enter Claim Amount">
+                <div *ngIf="(f.claimAmount.dirty || f.claimAmount.touched) && f.claimAmount.invalid"
+                    class="alert-feedback">
+                    <span class="formError" *ngIf="f.claimAmount.errors?.required">Claim Amount is required.</span>
+                </div>
+            </div>
+
+
+            <div class="mb-1">
+                <button style="margin:5px;" class='btn btn-primary' (click)='submitClaim()'>Submit</button>
+                <a style="margin:5px;" class='btn btn-primary' (click)='cancel()'>Cancel</a>
+            </div>
+
+            <div *ngIf="ispopup" class="alert alert-danger alert-dismissible fade show">
+                <strong>Error!</strong> {{errorMsg}}
+                <button (click)="closePopup()" type="button" class="btn-close" data-bs-dismiss="alert"
+                    aria-label="Close"></button>
+            </div>
+        </div>
+    </form>
+</div>

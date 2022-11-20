@@ -1,0 +1,19 @@
+
+  .div {
+    margin-bottom: 10px;
+  }
+  .label {
+    display: inline-block;
+    width: 150px;
+    text-align: right;
+  }
+
+  .container{
+    margin-top: 20px;
+    border-style:solid;
+    background-color: rgb(232, 237, 241);
+  }
+
+  .formError{
+    color: rgb(219, 19, 86);
+  }

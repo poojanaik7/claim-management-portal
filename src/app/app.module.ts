@@ -14,9 +14,10 @@ import { PolicyComponent } from './components/policy/policy.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProviderComponent } from './components/provider/provider.component';
 import { MemberhomeComponent } from './components/memberhome/memberhome.component';
-import { AngularMaterialModule } from './components/angular-material.module';
 import { ClaimComponent } from './components/claim/claim.component';
 import { BillsComponent } from './components/bills/bills.component';
+import { StatusComponent } from './components/status/status.component';
+import { AngularMaterialModule } from './angular-material.module';
 
 
 
@@ -28,7 +29,8 @@ const routes:Route []= [
   {path:'provider',component:ProviderComponent},
   {path:'',component:MemberhomeComponent},
   {path:'claims',component:ClaimComponent},
-  {path:'claim/bills',component:BillsComponent}
+  {path:'claim/bills',component:BillsComponent},
+  {path:'claims/viewStatus',component:StatusComponent}
   
 ];
 
@@ -42,8 +44,10 @@ const routes:Route []= [
     PolicyComponent,
     ProviderComponent,
     MemberhomeComponent,
-    ClaimComponent,BillsComponent
-  ],
+    ClaimComponent,
+    BillsComponent,
+    StatusComponent
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,

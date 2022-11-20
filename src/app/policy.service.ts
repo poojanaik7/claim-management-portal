@@ -8,6 +8,11 @@ export class PolicyService {
 
   constructor(private http: HttpClient) { }
 
+  coverage: Number;
+  premiumAmount: Number;
+  premiumPaymentFrequency: Number;
+  subscriptionDate: Date = new Date();
+
   getAllPolicies(){
     const currentUser = sessionStorage.getItem('currentUser');
     const token: any = JSON.parse(currentUser || '{}')['token']
@@ -28,10 +33,6 @@ export class PolicyService {
     })
   }
   
-  coverage: Number;
-  premiumAmount: Number;
-  premiumPaymentFrequency: Number;
-  subscriptionDate: Date = new Date();
   enrollPolicy(policyNumber: Number , policyName: string, coverage: any,premiumAmount: Number,
     premiumPaymentFrequency: Number,subscriptionDate: Date = new Date()) {
     const currentUser = sessionStorage.getItem('currentUser');

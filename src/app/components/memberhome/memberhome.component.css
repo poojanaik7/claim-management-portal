@@ -2,13 +2,17 @@
     padding: 16px;
 }
 
+.div{
+    background-color: darkgrey;
+}
+
 .content > mat-card {
     width: 200px;
 }
 .mat-card{
+    max-width: 300px;
     background-color: rgb(124, 162, 233);
 }
-
 .mat-card-image{
     width: 80px;
     height: 40px;
@@ -17,3 +21,12 @@
     margin-top: -6px;
     background-color:brown
 }
+
+.bg {
+    /* The image used */
+    background-image: url("https://static.vecteezy.com/system/resources/previews/002/071/755/original/abstract-blue-hexagon-pattern-background-medical-and-science-concept-and-health-care-icon-pattern-free-vector.jpg");
+    /* Full height */
+    /* Center and scale the image nicely */
+    background-position: center;
+    height: 90%;
+  }
