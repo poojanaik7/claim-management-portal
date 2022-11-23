@@ -44,8 +44,6 @@ export class ClaimComponent implements OnInit {
 
   submitClaim() {
     console.log('saved');
-    
-   
     const observable = this.service.submitClaim(this.policyNumber,this.policyName,this.providerName,this.benefitsAvailed,this.billAmount,this.claimAmount,this.claimDate);
     observable.subscribe((response: any) => {
       console.log(response);
@@ -61,17 +59,6 @@ export class ClaimComponent implements OnInit {
       })
   }
 
-  // getPolicies() {
-  //   const observable: Observable<any> = this.policyService.getAllPolicies();
-  //   observable.subscribe(response => {
-  //     console.log(response);
-  //     this.policies = response;
-  //   },
-  //     error => {
-  //       alert("something went wrong" + error)
-  //     }
-  //   )
-  // }
 
   closePopup(){
     this.ispopup = false;

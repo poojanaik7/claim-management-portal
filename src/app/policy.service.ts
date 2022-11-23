@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -16,10 +16,12 @@ export class PolicyService {
   getAllPolicies(){
     const currentUser = sessionStorage.getItem('currentUser');
     const token: any = JSON.parse(currentUser || '{}')['token']
+    const headers= new HttpHeaders()
+    .set('content-type', 'application/json')
+    .set('Authorization','Bearer ' + token)
+    .set('Access-Control-Allow-Origin', '*');
     return this.http.get("http://localhost:8003/policy/preview/policies", {
-      headers: {
-        Authorization: 'Bearer ' + token
-      }
+      headers: headers
     })
   }
 

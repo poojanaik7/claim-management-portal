@@ -64,6 +64,7 @@ export class PolicyComponent implements OnInit {
     observable.subscribe(response => {
       console.log(response);
       alert("Policy subscribed successfully")
+      this.router.navigate(['']);
     },
       error => {
         if (error.status == 400) {

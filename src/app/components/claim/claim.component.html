@@ -71,6 +71,10 @@
                 <button (click)="closePopup()" type="button" class="btn-close" data-bs-dismiss="alert"
                     aria-label="Close"></button>
             </div>
+            <div *ngIf="!policy">
+                <P>Please enroll the policy then submit the claim</P>
+            </div>
         </div>
+        
     </form>
 </div>

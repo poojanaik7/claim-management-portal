@@ -1,15 +1,21 @@
 <div class="container">
-<form>
-<div *ngFor="let bill of bills">
-
-    <h4>Billid: {{bill.billId}}</h4>
-    <h4>Policy Number:{{bill.policyNumber}}</h4>
-    <h4>Premium Paid Date:{{bill.premiumPaidDate}}</h4>
-    <h4>Premium Due Date:{{bill.premiumDueDate}}</h4>
-    <h4>Payment Term:{{bill.paymentTerm}}</h4>
-    <h4>Premium Amount:{{bill.premiumAmount}}</h4>
-    <h4>Coverage:{{bill.coverage}}</h4>
-    <h4>Next Premium Date:{{bill.nextPremiumDate}}</h4>
-</div>
-</form>
+    <div>View Bills</div>
+    <form>
+        <div *ngFor="let bill of bills">
+            <mat-card class="mt-3">
+                <h4>Billid: {{bill.billId}}</h4>
+                <h4>Policy Number:{{bill.policyNumber}}</h4>
+                <h4>Premium Paid Date:{{bill.premiumPaidDate}}</h4>
+                <h4>Premium Due Date:{{bill.premiumDueDate}}</h4>
+                <h4>Payment Term:{{bill.paymentTerm}}</h4>
+                <h4>Premium Amount:{{bill.premiumAmount}}</h4>
+                <h4>Coverage:{{bill.coverage}}</h4>
+                <h4>Next Premium Date:{{bill.nextPremiumDate}}</h4>
+            </mat-card>
+            <!-- <div *ngIf="!bill">
+                <P>Bills not found.Please submit the claims</P>
+            </div> -->
+        </div>
+        
+    </form>
 </div>

@@ -15,7 +15,7 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   signinUser(username: string, password: string) {
-    return this.http.post<any>("http://localhost:9191/members/signin", { username, password })
+    return this.http.post<any>("http://localhost:8002/members/signin", { username, password })
       .pipe(map(user => {
         // login successful if there's a jwt token in the response
         if (user && user.token) {

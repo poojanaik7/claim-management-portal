@@ -10,7 +10,7 @@
         <div class="container" fxLayout="row wrap" fxLayoutGap="16px grid">
             <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let policy of policyDetails">
                 <div class="item item-1">
-                    <button class="btn-primary" (click)="enrollPolicy(policy)">Enroll</button>
+                    <!-- <button class="btn-primary" (click)="enrollPolicy(policy)">Enroll</button> -->
                     <h4>Policy Name: {{policy.policyName}}</h4>
                     <h4>Policy Number:{{policy.policyNumber}}</h4>
                     <table class="table table-striped">
@@ -40,6 +40,7 @@
                             {{benefits.benefitDescription}}</p>
                     </div>
                 </div>
+                <button class="btn-primary" (click)="enrollPolicy(policy)">Enroll</button>
             </div>
         </div>
     </div>

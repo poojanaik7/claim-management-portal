@@ -10,7 +10,7 @@
 
   .container{
     margin-top: 20px;
-    border-style:solid;
+    border-style:unset;
     background-color: rgb(232, 237, 241);
     margin-right: 10px;
     margin-left: 10px;

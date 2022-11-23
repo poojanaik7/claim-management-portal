@@ -1,12 +1,14 @@
-
 <div class="container">
+    <div>View claim status</div>
     <form>
         <div *ngFor="let claim of claims">
+
             <h4>Claimid: {{claim.claimId}}</h4>
             <h4>Policy Number:{{claim.policyNumber}}</h4>
             <h4>Claim Amount:{{claim.claimAmount}}</h4>
             <h4>Claim Date:{{claim.claimDate}}</h4>
             <h4>Claim Status:{{claim.claimStatus}}</h4>
         </div>
+
     </form>
 </div>
